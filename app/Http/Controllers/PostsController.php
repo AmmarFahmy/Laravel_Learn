@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BlogPost;
 use App\Http\Requests\StorePost;
+// use Illuminate\Support\Facades\DB;
 
 
 class PostsController extends Controller
@@ -40,8 +41,19 @@ class PostsController extends Controller
 
         //if we need to query any ting differently than the default, we need to code it like below:
         //return view('posts.index', ['posts' => BlogPost::orderedBy('created_at', 'desc')->get()]);
+        
+        // DB::connection()->enableQueryLog();
+        
+        // $posts = BlogPost::all();
+        // foreach ($posts as $post) {
+        //     foreach ($post->comments as $comment) {
+        //         echo $comment->content;
+        //     }
+        // }
 
-        return view('posts.index', ['posts' => BlogPost::all()]);
+        // dd(DB::getQueryLog());
+
+        return view('posts.index', ['posts' => BlogPost::withCount('comments')->get()]);
     }
 
     /**
