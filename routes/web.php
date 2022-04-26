@@ -31,6 +31,7 @@ Route::get('/',[HomeController::class, 'home'])->name('home.index');
 //the below are same as above segments
 // Route::view('/contact', 'home.contact')->name('home.contact');
 Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
+Route::get('/register', [HomeController::class, 'register'])->name('auth.register');
 
 
 $posts = [
@@ -115,3 +116,5 @@ Route::prefix('/fun')->name('fun.')->group(function () use ($posts){
         return response() -> download(public_path('/sample.jpg'), 'wallpaper.jpg');
     })->name('download');
 });
+
+Auth::routes();
