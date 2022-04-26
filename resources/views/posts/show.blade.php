@@ -22,6 +22,20 @@
         <div class="alert alert-info">New!</div>
     @endif
 
+
+    <h4 class="mt-5">Comments</h4>
+
+    @forelse ($post->comments as $comment)
+        <p>
+            {{ $comment->content }},
+        <p class="text-muted">updated {{ $comment->updated_at->diffForHumans() }}</p>
+        </p>
+    @empty
+        <p>
+            No comments yet!
+        </p>
+    @endforelse
+
     {{-- @isset($post['has_comments'])
         <div>The post has some comments</div>
     @endisset --}}
