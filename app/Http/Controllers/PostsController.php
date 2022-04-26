@@ -56,7 +56,7 @@ class PostsController extends Controller
         return view('posts.index', ['posts' => BlogPost::withCount('comments')->get()]);
     }
 
-    /**
+    /**  
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
