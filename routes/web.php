@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\Auth\RegisterController;
 
-// Auth::route();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +31,7 @@ Route::get('/',[HomeController::class, 'home'])->name('home.index');
 //the below are same as above segments
 // Route::view('/contact', 'home.contact')->name('home.contact');
 Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
-Route::get('/register', [HomeController::class, 'register'])->name('auth.register');
+// Route::get('/register', [RegisterController::class, 'register'])->name('auth.register');
 
 
 $posts = [

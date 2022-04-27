@@ -15,7 +15,7 @@ class HomeController extends Controller
         return view('home.contact');
     }
 
-    public function register() {
-        return view('auth.register');
-    }
+    // public function register() {
+    //     return view('auth.register');
+    // }
 }
